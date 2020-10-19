@@ -28,7 +28,7 @@
     </ul>
     <div class="info">
       <button v-on:click="start">Старт</button>
-      <h3 v-if="showResult">Пройдено уровней: {{sequence.length}}!</h3>
+      <h3 v-if="showResult">Пройдено уровней: {{sequence.length-1}}!</h3>
       <h3 v-if="!showResult">Цель игры: запомнить продемонстрированную 
         последовательность активации элементов поля и повторить ее. 
         С каждым успешным раундом количество элементов увеличивается</h3>
@@ -52,6 +52,7 @@ export default {
   methods: {
 
     start() {
+      this.round = 0;
       this.showResult = false;
       this.sequence = [];
       this.setNewNumber();
@@ -77,8 +78,6 @@ export default {
         this.currentNumber = this.sequence[this.round-1]; }
         else {
           this.showResult = true;
-          this.round = 0;
-          this.sequence = [];
           this.interactivityBlocked = true;
         }
         
