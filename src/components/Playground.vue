@@ -128,6 +128,7 @@ export default {
 <style lang="scss">
 .playground {
   display: flex;
+  min-width: 680px;
   align-content: center;
   justify-content: center;
 
@@ -196,6 +197,25 @@ export default {
 
     h3 {
       text-align: start;
+    }
+  }
+}
+
+@media (max-width: 700px)  {
+  h1 {
+    min-width: 460px;
+  }
+  .playground {
+    flex-direction: column;
+    min-width: 460px;
+    align-items: center;
+
+    .info {
+      align-items: center;
+      
+      h3 {
+        text-align: center;
+      }
     }
   }
 }
